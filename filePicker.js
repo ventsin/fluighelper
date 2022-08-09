@@ -93,4 +93,38 @@ const FilePicker = {
 
         return orderRecursively(root, docs);
     },
+
+    getDocuments: function () {
+        let ret = DatasetFactory.getDataset(
+            "getDocuments",
+            [
+                "nr_documento",
+                "tp_documento",
+                "ds_principal_documento",
+                "nr_documento_pai",
+                "nm_arquivo_fisico",
+                "cod_mime_type"
+            ],
+            null,
+            null
+        );
+
+        return this.dbFormatToDs(ret.values);
+    },
+
+    dbFormatToDs: function(_values) {
+        let ret = [];
+        _values.forEach(function(val) {
+            let v = {};
+            v["documentPK.documentId"] = val.nr_documento;
+            v.documentType = val.tp_documento;
+            v.documentDescription = val.ds_principal_documento;
+            v.parentDocumentId = val.nr_documento_pai;
+            v.phisicalFile = val.nm_arquivo_fisico;
+            v.mimetype = val.cod_mime_type;
+            ret.push(v);
+        });
+
+        return ret;
+    },
 }

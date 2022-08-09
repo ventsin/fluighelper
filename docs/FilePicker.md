@@ -15,7 +15,7 @@ let picker = FilePicker.open(files, (selected) => {
     return selected.name.startsWith('nota');
 });
 ```
-`FilePicker.getDocuments` will return all of the GED documents by querying the `documento` Dataset. You **may** want to source the documents with a more specialized Dataset to improve performance.  
+`FilePicker.getDocuments` will return all of the GED documents by querying the `getDocuments` Dataset. You **may** want to source the documents with a more specialized Dataset to improve performance. The `getDocuments` Dataset is not included in this repository, but you can find it [here](https://github.com/ventsin/fluigdatasets).  
 `FilePicker.hierarchizeDocs` will recursively copy the tabular data returned by the `documento` Dataset into a hierarchical format that makes more sense for a file picker.  
 The reason why we need to source the files, is that we can easily filter only the folders or document types that we want:
 ```js
