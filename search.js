@@ -34,7 +34,7 @@ const Search = {
 			}
 		};
 
-		this.setHover(out.btn);
+		this.setHover($(out.btn));
 
 		$(out.table).collapse({
 			toggle: false
