@@ -4,7 +4,12 @@
 //fluighelper/templates.js
 
 const Search = {
-	create(id, headers, display_column) {
+	create(params) {
+		let id = params.id;
+		let headers = params.headers;
+		let display_column = params.display_column;
+		let in_colors = params.colors;
+
 		let original = $('#' + id);
 
 		let html = Templates.render('search', {
@@ -34,11 +39,11 @@ const Search = {
 			select: null,
 
 			colors: {
-				default: '#58595b', //primary
-				highlight: '#1ab83f', //success
-				remove: '#cc3d3d', //danger
+				default: in_colors.default ? in_colors.default : '#58595b', //primary
+				highlight: in_colors.highlight ? in_colors.highlight : '#1ab83f', //success
+				remove: in_colors.remove ? in_colors.remove : '#cc3d3d', //danger
 			},
-			
+
 			remove() {
 				$(this.igrup).remove();
 				$(this.table).remove();
