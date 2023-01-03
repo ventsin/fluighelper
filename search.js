@@ -47,6 +47,13 @@ const Search = {
 		});
 
 		$(out.btn).click(() => {
+			if ($(out.btn).children().first().hasClass('flaticon-close')) {
+				$(out.btn).html(Search.icons['search']);
+				$(out.field).val('');
+				original.val('');
+				return;
+			}
+
 			$(out.btn).html(Search.icons['list']);
 
 			let searchval = $(out.field).val();
