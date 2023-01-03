@@ -5,7 +5,7 @@
 
 const Search = {
 	create(id, headers, display_column) {
-		let original = $(id);
+		let original = $('#' + id);
 
 		let html = Templates.render('search', {
 			id,
