@@ -32,6 +32,12 @@ const Search = {
 			
 			search: null,
 			select: null,
+
+			colors: {
+				default: '#58595b', //primary
+				highlight: '#1ab83f', //success
+				remove: '#cc3d3d', //danger
+			},
 			
 			remove() {
 				$(this.igrup).remove();
@@ -49,6 +55,7 @@ const Search = {
 		$(out.btn).click(() => {
 			if ($(out.btn).children().first().hasClass('flaticon-close')) {
 				$(out.btn).html(Search.icons['search']);
+				this.setColor($(out.btn), out.colors.default);
 				$(out.field).val('');
 				original.val('');
 				return;
@@ -87,6 +94,7 @@ const Search = {
 				out.select(selected);
 
 				$(out.btn).html(Search.icons['done']);
+				this.setColor($(out.btn), out.colors.highlight);
 			});
 		});
 
@@ -96,16 +104,25 @@ const Search = {
 	setHover(el) {
 		el.hover(
 			function(){
-				if ($(this).children().first().hasClass('flaticon-done'))
+				if ($(this).children().first().hasClass('flaticon-done')) {
 					$(this).html(Search.icons['close']);
+					this.setColor($(out.btn), out.colors.remove);
+				}
 			},
 			function() {
-				if ($(this).children().first().hasClass('flaticon-close'))
+				if ($(this).children().first().hasClass('flaticon-close')) {
 					$(this).html(Search.icons['done']);
+					this.setColor($(out.btn), out.colors.highlight);
+				}
 			}
 		);
 	},
 	
+	setColor(el, color) {
+		el.css('background-color', color);
+		el.prev().css('border-color', color);
+	},
+
 	icons: {
 		search: '<i class="flaticon flaticon-search icon-sm"></i>',
 		done: '<i class="flaticon flaticon-done icon-sm"></i>',
