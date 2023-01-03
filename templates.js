@@ -119,7 +119,7 @@ Templates.custom_templates["comboBase"] = (_params) => {
 Templates.custom_templates["search"] = _params => {
 	let headers = '<tr>';
 	_params.headers.forEach((h) => {
-		headers += `<th>${h}</th>`;
+		headers += `<th>${h.name}</th>`;
 	});
 	headers += '</tr>';
 
