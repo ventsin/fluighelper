@@ -115,3 +115,49 @@ Templates.custom_templates["comboBase"] = (_params) => {
                 ${options}
             </select>`.trim();
 };
+
+Templates.custom_templates["search"] = _params => {
+	let headers = '<tr>';
+	_params.headers.forEach((h) => {
+		headers += `<th>${h}</th>`;
+	});
+	headers += '</tr>';
+
+	let igrup = 'fh-s-igrup-' + _params.id;
+	let btn = 	'fh-s-btn-' + _params.id;
+	let table = 'fh-s-table-' + _params.id;
+	let tbody = 'fh-s-tbody-' + _params.id;
+	let field = 'fh-s-field-' + _params.id;
+
+	return `
+		<div id="${igrup}" class="input-group">
+			<span class="input-group-btn">
+				<input id="${field}" type="text" class="form-control"
+					value="" placeholder="Pesquisa..."
+					style="border-color:#58595b">
+				<button id="${btn}" class="btn btn-primary" type="button"><i class="flaticon flaticon-search icon-sm" aria-hidden="true"></i>
+				</button>
+			</span>
+		</div>
+		<div id="${table}" class="collapse"
+			style="border: 1px solid;
+			margin-top: -3px;
+			max-height: 200px;
+			overflow-y: scroll;
+			margin-right: 15px;
+			position: absolute;
+			background-color: white;
+			width: -webkit-fill-available;
+			width: fill-available;
+			width: -moz-available;
+		">
+			<table class="table table-hover">
+				<thead>
+					${headers}
+				</thead>
+				<tbody id="${tbody}">
+
+				</tbody>
+			</table>
+		</div>`
+};
