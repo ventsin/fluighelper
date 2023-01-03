@@ -53,12 +53,12 @@ const Search = {
 
 			out.results.forEach((row, idx) => {
 				let tds = '';
-				row.forEach(r => {
-					tds += `<td>${r}</td>`;
+				headers.forEach(h => {
+					tds += `<td>${row[h.field]}</td>`;
 				});
 
 				$(out.tbody).append(`
-					<tr idx="${idx}" sku>
+					<tr idx="${idx}" search="${id}">
 						${tds}
 					</tr>
 				`);
