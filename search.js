@@ -57,6 +57,7 @@ const Search = {
 				$(out.btn).html(Search.icons['search']);
 				this.setColor(out, out.colors.default);
 				$(out.field).val('');
+				$(out.field).removeAttr('disabled');
 				original.val('');
 				return;
 			}
@@ -95,6 +96,7 @@ const Search = {
 
 				$(out.btn).html(Search.icons['done']);
 				this.setColor(out, out.colors.highlight);
+				$(out.field).attr('disabled', 'disabled');
 			});
 		});
 
