@@ -46,7 +46,7 @@ const Search = {
 			}
 		};
 
-		this.setHover($(out.btn));
+		this.setHover(out);
 
 		$(out.table).collapse({
 			toggle: false
@@ -55,7 +55,7 @@ const Search = {
 		$(out.btn).click(() => {
 			if ($(out.btn).children().first().hasClass('flaticon-close')) {
 				$(out.btn).html(Search.icons['search']);
-				this.setColor($(out.btn), out.colors.default);
+				this.setColor(out, out.colors.default);
 				$(out.field).val('');
 				original.val('');
 				return;
@@ -94,33 +94,35 @@ const Search = {
 				out.select(selected);
 
 				$(out.btn).html(Search.icons['done']);
-				this.setColor($(out.btn), out.colors.highlight);
+				this.setColor(out, out.colors.highlight);
 			});
 		});
 
 		return out;
 	},
 
-	setHover(el) {
-		el.hover(
+	setHover(out) {
+		$(out.btn).hover(
 			function(){
 				if ($(this).children().first().hasClass('flaticon-done')) {
 					$(this).html(Search.icons['close']);
-					this.setColor($(out.btn), out.colors.remove);
+					this.setColor(out, out.colors.remove);
 				}
 			},
 			function() {
 				if ($(this).children().first().hasClass('flaticon-close')) {
 					$(this).html(Search.icons['done']);
-					this.setColor($(out.btn), out.colors.highlight);
+					this.setColor(out, out.colors.highlight);
 				}
 			}
 		);
 	},
 	
-	setColor(el, color) {
-		el.css('background-color', color);
-		el.prev().css('border-color', color);
+	setColor(out, color) {
+		let btn = $(out.btn);
+		btn.css('background-color', color);
+		btn.css('border-color', color);
+		btn.prev().css('border-color', color);
 	},
 
 	icons: {
