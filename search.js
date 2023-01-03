@@ -102,16 +102,17 @@ const Search = {
 	},
 
 	setHover(out) {
-		$(out.btn).hover(
-			function(){
-				if ($(this).children().first().hasClass('flaticon-done')) {
-					$(this).html(Search.icons['close']);
+		let btn = $(out.btn);
+		btn.hover(
+			() => {
+				if (btn.children().first().hasClass('flaticon-done')) {
+					btn.html(Search.icons['close']);
 					this.setColor(out, out.colors.remove);
 				}
 			},
-			function() {
-				if ($(this).children().first().hasClass('flaticon-close')) {
-					$(this).html(Search.icons['done']);
+			() => {
+				if (btn.children().first().hasClass('flaticon-close')) {
+					btn.html(Search.icons['done']);
 					this.setColor(out, out.colors.highlight);
 				}
 			}
