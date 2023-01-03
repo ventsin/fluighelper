@@ -8,7 +8,7 @@ const Search = {
 		let id = params.id;
 		let headers = params.headers;
 		let display_column = params.display_column;
-		let in_colors = params.colors;
+		let in_colors = params.colors ? params.colors : {};
 
 		let original = $('#' + id);
 
