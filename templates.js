@@ -136,13 +136,11 @@ Templates.custom_templates["search"] = _params => {
 
 	return `
 		<div id="${igrup}" class="input-group">
-			<span class="input-group-btn">
-				<input id="${field}" type="text" class="form-control"
-					value="" placeholder="Pesquisa..."
-					style="border-color:#58595b">
-				<button id="${btn}" class="btn btn-primary" type="button"><i class="flaticon flaticon-search icon-sm" aria-hidden="true"></i>
-				</button>
-			</span>
+			<input id="${field}" type="text" class="form-control"
+				value="" placeholder="Pesquisa..."
+				style="border-color:#58595b">
+			<button id="${btn}" class="btn btn-primary" type="button"><i class="flaticon flaticon-search icon-sm" aria-hidden="true"></i>
+			</button>
 		</div>
 		<div id="${table}" class="collapse"
 			style="border: 1px solid;
