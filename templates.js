@@ -123,7 +123,7 @@ Templates.custom_templates["search"] = _params => {
 	});
 	headers += '</tr>';
 
-	if (FLUIG_HELPER_DEBUG) {
+	if (typeof(FLUIG_HELPER_DEBUG) !== 'undefined') {
 		console.log(_params);
 		console.log(headers);
 	}

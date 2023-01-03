@@ -12,7 +12,7 @@ const Search = {
 			headers
 		});
 
-		if (FLUIG_HELPER_DEBUG) {
+		if (typeof(FLUIG_HELPER_DEBUG) !== 'undefined') {
 			console.log(id);
 			console.log(headers);
 			console.log(html);
