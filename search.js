@@ -9,8 +9,14 @@ const Search = {
 
 		let html = Templates.render('search', {
 			id,
-			headers,
+			headers
 		});
+
+		if (FLUIG_HELPER_DEBUG) {
+			console.log(id);
+			console.log(headers);
+			console.log(html);
+		}
 		
 		original.hide();
 		original.after(html);

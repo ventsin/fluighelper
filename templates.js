@@ -123,6 +123,11 @@ Templates.custom_templates["search"] = _params => {
 	});
 	headers += '</tr>';
 
+	if (FLUIG_HELPER_DEBUG) {
+		console.log(_params);
+		console.log(headers);
+	}
+
 	let igrup = 'fh-s-igrup-' + _params.id;
 	let btn = 	'fh-s-btn-' + _params.id;
 	let table = 'fh-s-table-' + _params.id;
