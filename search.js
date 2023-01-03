@@ -46,6 +46,14 @@ const Search = {
 			}
 		};
 
+		let original_content = original.val();
+		if (original_content.length > 0) {
+			$(out.field).val(original_content);
+			$(out.btn).html(Search.icons['done']);
+			this.setColor(out, out.colors.highlight);
+			$(out.field).attr('disabled', 'disabled');
+		}
+
 		this.setHover(out);
 
 		$(out.table).collapse({
