@@ -155,6 +155,7 @@ Templates.custom_templates["search"] = _params => {
 			width: -webkit-fill-available;
 			width: fill-available;
 			width: -moz-available;
+			z-index: 9999;
 		">
 			<table class="table table-hover">
 				<thead>
