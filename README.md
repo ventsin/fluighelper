@@ -32,7 +32,7 @@ For Templates:
 Search, Table Builder and File Picker need Templates included before them to work!
 
 ## Specific Documentation Files
-- [Search] (docs/Search.md)
+- [Search](docs/Search.md)
 - [Table Builder](docs/TableBuilder.md)
 - [File Picker](docs/FilePicker.md)
 - [Templates](docs/Templates.md)
