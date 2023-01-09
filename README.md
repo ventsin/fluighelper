@@ -11,7 +11,11 @@ The objective is to simplify both development and maintenance by allowing your c
 ## Installation
 Fluig Helper should be cloned in `$FLUIG/repository/wcmdir/wcmROOT/resources/js/`.
 
-To use, include whatever files you need in your html:  
+To use, include whatever files you need in your html: 
+For Search:
+```html
+<script src="fluighelper/search.js"></script>
+```
 For Table Builder:
 ```html
 <script src="fluighelper/tableBuilder.js"></script>
@@ -28,6 +32,7 @@ For Templates:
 Table Builder and File Picker need Templates included before them to work!
 
 ## Specific Documentation Files
+- [Search] (docs/Search.md)
 - [Table Builder](docs/TableBuilder.md)
 - [File Picker](docs/FilePicker.md)
 - [Templates](docs/Templates.md)

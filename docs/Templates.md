@@ -24,7 +24,7 @@ Templates.custom_templates["myTemplate"] = _params => {
 };
 ```
 
-Another silly example, and a most certainly useless template! Yet it is once again easy to see how it works. Every template is a function that uses its parameters to fill out a premade HTML string.Your templates can become very complex depending on the parameters it is passed, so you using this mechanism helps keep the HTML portion of your code separate from your JavaScript.
+Another silly example, and a most certainly useless template! Yet it is once again easy to see how it works. Every template is a function that uses its parameters to fill out a premade HTML string. Your templates can become very complex depending on the parameters, so you using this mechanism helps keep the HTML portion of your code separate from your JavaScript.
 
 ## Why?
 Do you ever think to yourself: "Boy, I sure have a lot of random HTML strings on my Javascript, it's impossible to know what's going on!"?  
