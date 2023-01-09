@@ -29,7 +29,7 @@ For Templates:
 <script src="fluighelper/templates.js"></script>
 ```
 
-Table Builder and File Picker need Templates included before them to work!
+Search, Table Builder and File Picker need Templates included before them to work!
 
 ## Specific Documentation Files
 - [Search] (docs/Search.md)
