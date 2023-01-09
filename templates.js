@@ -128,11 +128,13 @@ Templates.custom_templates["search"] = _params => {
 		console.log(headers);
 	}
 
-	let igrup = 'fh-s-igrup-' + _params.id;
-	let btn = 	'fh-s-btn-' + _params.id;
-	let table = 'fh-s-table-' + _params.id;
-	let tbody = 'fh-s-tbody-' + _params.id;
-	let field = 'fh-s-field-' + _params.id;
+	let id = _params.id.substring(1);
+
+	let igrup = 'fh-s-igrup-' + id;
+	let btn = 	'fh-s-btn-'   + id;
+	let table = 'fh-s-table-' + id;
+	let tbody = 'fh-s-tbody-' + id;
+	let field = 'fh-s-field-' + id;
 
 	return `
 		<div id="${igrup}" class="input-group">
