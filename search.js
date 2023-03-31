@@ -66,10 +66,15 @@ const Search = {
 		});
 
 		$(out.btn).click(() => {
-			if ($(out.btn).children().first().hasClass('fluig-helper-rotating'))
+			if ($(out.btn).children().first().hasClass('fluig-helper-rotating')) {
+				if (typeof(FLUIG_HELPER_DEBUG) !== 'undefined')
+					console.log("Returned from click because of fluig-helper-rotating");
 				return;
+			}
 
 			if ($(out.btn).children().first().hasClass('flaticon-close')) {
+				if (typeof(FLUIG_HELPER_DEBUG) !== 'undefined')
+					console.log("Returned from click because of flaticon-close");
 				$(out.btn).html(Search.icons['search']);
 				this.setColor(out, out.colors.default);
 				$(out.field).val('');
@@ -84,7 +89,13 @@ const Search = {
 
 			$(out.tbody).html('');
 
-			setTimeout(() => {	
+			if (typeof(FLUIG_HELPER_DEBUG) !== 'undefined')
+				console.log("Setting Timeout");
+
+			setTimeout(() => {
+				if (typeof(FLUIG_HELPER_DEBUG) !== 'undefined')
+					console.log("Running Timeout");
+
 				$(out.table).collapse('show');
 				out.results = out.search(searchval);
 
