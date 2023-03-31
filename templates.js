@@ -128,7 +128,7 @@ Templates.custom_templates["search"] = _params => {
 		console.log(headers);
 	}
 
-	let id = _params.id.substring(1);
+	let id = _params.id;//.substring(1);
 
 	let igrup = 'fh-s-igrup-' + id;
 	let btn = 	'fh-s-btn-'   + id;
