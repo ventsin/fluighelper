@@ -75,7 +75,7 @@ const Search = {
 				return;
 			}
 
-			$(out.btn).html(Search.icons['list']);
+			$(out.btn).html(Search.icons['querying']);
 
 			let searchval = $(out.field).val();
 			$(out.table).collapse('show');
@@ -85,32 +85,35 @@ const Search = {
 
 			$(out.tbody).html('');
 
-			out.results.forEach((row, idx) => {
-				let tds = '';
-				headers.forEach(h => {
-					tds += `<td>${row[h.field]}</td>`;
+			setTimeout(() => {
+				out.results.forEach((row, idx) => {
+					let tds = '';
+					headers.forEach(h => {
+						tds += `<td>${row[h.field]}</td>`;
+					});
+
+					$(out.tbody).append(`
+						<tr idx="${idx}" search="${id}">
+							${tds}
+						</tr>
+					`);
 				});
+				$(out.btn).html(Search.icons['list']);
 
-				$(out.tbody).append(`
-					<tr idx="${idx}" search="${id}">
-						${tds}
-					</tr>
-				`);
-			});
+				$(`tr[search=${id}]`).click((e) => {
+					$(out.table).collapse('hide');
 
-			$(`tr[search=${id}]`).click((e) => {
-				$(out.table).collapse('hide');
+					let idx = Number($(e.currentTarget).attr('idx'));
+					let selected = out.results[idx];
+					
+					$(out.field).val(selected[display_column]);
+					out.select(selected);
 
-				let idx = Number($(e.currentTarget).attr('idx'));
-				let selected = out.results[idx];
-				
-				$(out.field).val(selected[display_column]);
-				out.select(selected);
-
-				$(out.btn).html(Search.icons['done']);
-				this.setColor(out, out.colors.highlight);
-				$(out.field).attr('disabled', 'disabled');
-			});
+					$(out.btn).html(Search.icons['done']);
+					this.setColor(out, out.colors.highlight);
+					$(out.field).attr('disabled', 'disabled');
+				});
+			}, 50);
 		});
 
 		return out;
@@ -143,6 +146,7 @@ const Search = {
 
 	icons: {
 		search: '<i class="flaticon flaticon-search icon-sm"></i>',
+		querying: '<i class="flaticon flaticon-refresh icon-sm fluig-helper-rotating" aria-hidden="true"></i>',
 		done: '<i class="flaticon flaticon-done icon-sm"></i>',
 		close: '<i class="flaticon flaticon-close icon-sm"></i>',
 		list: '<i class="flaticon flaticon-list icon-sm"></i>'
