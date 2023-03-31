@@ -66,6 +66,9 @@ const Search = {
 		});
 
 		$(out.btn).click(() => {
+			if ($(out.btn).children().first().hasClass('fluig-helper-rotating'))
+				return;
+
 			if ($(out.btn).children().first().hasClass('flaticon-close')) {
 				$(out.btn).html(Search.icons['search']);
 				this.setColor(out, out.colors.default);
@@ -78,14 +81,13 @@ const Search = {
 			$(out.btn).html(Search.icons['querying']);
 
 			let searchval = $(out.field).val();
-			$(out.table).collapse('show');
-			out.results = out.search(searchval);
-
-			//let srch = g_sku.filter((s) => s.sku.indexOf(searchval) !== -1);
 
 			$(out.tbody).html('');
 
-			setTimeout(() => {
+			setTimeout(() => {	
+				$(out.table).collapse('show');
+				out.results = out.search(searchval);
+
 				out.results.forEach((row, idx) => {
 					let tds = '';
 					headers.forEach(h => {
