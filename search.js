@@ -5,12 +5,12 @@
 
 const Search = {
 	create(params) {
-		let id = params.id.startsWith('#') ? params.id : "#" + params.id;
+		let id = params.id.startsWith('#') ? params.id.substring(1) : params.id;
 		let headers = params.headers;
 		let display_column = params.display_column;
 		let in_colors = params.colors ? params.colors : {};
 
-		let original = $(id);
+		let original = $(`${id}`);
 
 		let html = Templates.render('search', {
 			id,
@@ -47,7 +47,7 @@ const Search = {
 			remove() {
 				$(this.igrup).remove();
 				$(this.table).remove();
-				$(id).show();
+				$(`${id}`).show();
 			}
 		};
 
