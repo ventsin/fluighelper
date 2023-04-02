@@ -37,6 +37,7 @@ const Search = {
 			
 			search: null,
 			select: null,
+			cancel: null,
 
 			colors: {
 				default: in_colors.default ? in_colors.default : '#58595b', //primary
@@ -80,6 +81,8 @@ const Search = {
 				$(out.field).val('');
 				$(out.field).removeAttr('disabled');
 				original.val('');
+				if (out.cancel)
+					out.cancel();
 				return;
 			}
 
